@@ -4,6 +4,7 @@ const express = require("express");
 const { engine } = require("express-handlebars");
 const morgan = require("morgan");
 const { log } = require("console");
+const route = require("./routes");
 
 const app = express();
 // Cái gì mà express được trả về thì nó được xây dựng sẵn ở express rồi nên khi ta gọi express() thì trả lại cho ta 1 đối tượng để ta có thể xây dựng website
@@ -16,31 +17,23 @@ app.engine(
     extname: ".hbs",
   })
 );
-
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resource/views"));
 
 const post = 1405;
 // biến post giúp ta muốn chạy website ở cổng nào
-app.get("/", (req, res) => {
-  res.render("home");
-});
-
-app.get("/news", (req, res) => {
-  res.render("news");
-});
-app.get("/search", (req, res) => {
-  res.render("search");
-});
-// app.post("/search", (req, res) => {
-//   console.log("req: ", req.body);
-// });
+//Route init
+route(app);
 
 // Get : như ta dùng route
-// app.post("/search", (req, res) => {
-//   res.render("search");
-// });
+
 app.listen(post, () => {
   console.log(`listening on port ${post}`);
 });
