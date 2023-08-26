@@ -6,6 +6,11 @@ const morgan = require("morgan");
 const { log } = require("console");
 const route = require("./routes");
 
+const db = require("./config/db");
+
+//Connect to DB
+db.connect();
+
 const app = express();
 // Cái gì mà express được trả về thì nó được xây dựng sẵn ở express rồi nên khi ta gọi express() thì trả lại cho ta 1 đối tượng để ta có thể xây dựng website
 //Http logger
@@ -25,7 +30,7 @@ app.use(
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "resource/views"));
+app.set("views", path.join(__dirname, "resource", "views"));
 
 const post = 1405;
 // biến post giúp ta muốn chạy website ở cổng nào
