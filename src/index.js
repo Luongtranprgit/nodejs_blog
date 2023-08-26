@@ -4,6 +4,7 @@ const express = require("express");
 const { engine } = require("express-handlebars");
 const morgan = require("morgan");
 const { log } = require("console");
+const methodOverride = require("method-override");
 const route = require("./routes");
 
 const db = require("./config/db");
@@ -27,6 +28,7 @@ app.use(
     extended: true,
   })
 );
+app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "hbs");

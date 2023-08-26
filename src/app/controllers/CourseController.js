@@ -1,5 +1,6 @@
-const Course = require("../models/Course");
+const Course = require("../models/course");
 const { mongooseToObject } = require("../../util/mongoose");
+
 class CourseController {
   //GET /
   show(req, res, next) {
@@ -10,7 +11,7 @@ class CourseController {
       .catch(next);
   }
 
-  //Get/ccourse/create
+  // [GET] /courses/create
   create(req, res, next) {
     res.render("courses/create");
   }
