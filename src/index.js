@@ -13,6 +13,9 @@ const db = require("./config/db");
 db.connect();
 
 const app = express();
+
+app.set("view engine", "html");
+app.engine("html", require("hbs").__express);
 // Cái gì mà express được trả về thì nó được xây dựng sẵn ở express rồi nên khi ta gọi express() thì trả lại cho ta 1 đối tượng để ta có thể xây dựng website
 //Http logger
 // app.use(morgan("combined"));
@@ -21,6 +24,11 @@ app.engine(
   "hbs",
   engine({
     extname: ".hbs",
+    helpers: {
+      sum: (a, b) => {
+        return a + b;
+      },
+    },
   })
 );
 app.use(
@@ -36,10 +44,11 @@ app.set("views", path.join(__dirname, "resource", "views"));
 
 const post = 1405;
 // biến post giúp ta muốn chạy website ở cổng nào
-//Route init
-route(app);
 
 // Get : như ta dùng route
+
+//Route init
+route(app);
 
 app.listen(post, () => {
   console.log(`listening on port ${post}`);

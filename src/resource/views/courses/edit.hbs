@@ -1,0 +1,85 @@
+<!-- <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="mt-4">
+      <h3>Cập nhật khóa học</h3>
+      <form method="post" action="/courses/{{courses._id}}?_method=PUT">
+        <div class="form-group">
+          <label for="name">Tên khóa học</label>
+          <input
+            type="text"
+            class="form-control"
+            value="{{courses.name}}"
+            id="name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Mô tả</label>
+          <input
+            type="text"
+            class="form-control"
+            value="{{courses.description}}"
+            id="description"
+            name="description"
+          />
+        </div>
+        <div class="form-group">
+          <label for="videoId">Video ID</label>
+          <input
+            type="text"
+            class="form-control"
+            value="{{courses.videoId}}"
+            id="videoId"
+            name="videoId"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu lại</button>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+  </body>
+</html> -->
+
+<div class="mt-4">
+  <h3>Cập nhật khóa học</h3>
+  <form method="post" action="/courses/{{courses._id}}?_method=PUT">
+    <div class="form-group">
+      <label for="name">Tên khóa học</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{courses.name}}"
+        id="name"
+        name="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Mô tả</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{courses.description}}"
+        id="description"
+        name="description"
+      />
+    </div>
+    <div class="form-group">
+      <label for="videoId">Video ID</label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{courses.videoId}}"
+        id="videoId"
+        name="videoId"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu lại</button>
+  </form>
+</div>
